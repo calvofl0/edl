@@ -379,6 +379,7 @@ def main():
             logger.error("USB desync, please rerun command !")
             exit(0)
 
+    print((mode,resp))
     if mode == "sahara":
         if "mode" in resp:
             mode = resp["mode"]
@@ -402,6 +403,7 @@ def main():
                     exit(0)
         else:
             print("Device is in an unknown state")
+            print("resp={0}".format(resp))
             exit(0)
     else:
         sahara.bit64 = True

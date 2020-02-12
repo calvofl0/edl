@@ -257,6 +257,7 @@ class qualcomm_sahara():
         v = self.cdc.read()
         if b"<?xml" in v:
             return [-1,-1]
+        print(('v',v[0:0x2*0x4]))
         pkt = read_object(v[0:0x2*0x4], self.pkt_cmd_hdr)
         if pkt['cmd'] == self.cmd.SAHARA_HELLO_REQ:
             data = read_object(v[0x0:0xC*0x4], self.pkt_hello_req)
